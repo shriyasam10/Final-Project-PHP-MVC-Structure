@@ -19,15 +19,47 @@
 
 
 <form action="index.php?page=accounts&action=register" method="post">
-    First name: <input type="text" name="fname"><br>
-    Last name: <input type="text" name="lname"><br>
-    Email: <input type="text" name="email"><br>
-    Phone: <input type="text" name="phone"><br>
-    Birthday: <input type="text" name="birthday"><br>
-    Gender: <input type="text" name="gender"><br>
-    Password: <input type="password" name="password"><br>
-    <input type="submit" value="Submit form">
+
+<label><b>First Name:</b></label><br>
+<input type="text" placeholder="Enter first name" name="fname" required><br><br>
+<label><b>Last Name:</b></label><br>
+<input type="text" placeholder="Enter last name" name="lname" required><br><br>
+<label><b>Email ID:</b></label><br>
+<input type="text" placeholder="Enter email ID" name="email" required><br><br>
+<label><b>Phone Number:</b></label><br>
+<input type="text" placeholder="Enter phone number" name="phone" required><br><br>
+<label><b>Birthdate:</b></label><br>
+<input type="text" placeholder="Enter birthdate" name="birthday" required><br><br>
+<label><b>Gender:</b></label><br>
+<input type="text" placeholder="Enter gender" name="gender" required><br><br>
+<label><b>Password:</b></label><br>
+<input type="text" placeholder="Enter password" name="password" required><br><br>
+<input type="submit" value="Submit form"> 
 </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-First name: <input type="text" name="fname"><br>
+<!-Last name: <input type="text" name="lname"><br>
+<!-Email: <input type="text" name="email"><br>
+<!-Phone: <input type="text" name="phone"><br>
+<!-Birthday: <input type="text" name="birthday"><br>
+<!-Gender: <input type="text" name="gender"><br>
+<!-Password: <input type="password" name="password"><br>
 
 
 <script src="js/scripts.js"></script>
