@@ -42,15 +42,23 @@ final class account extends \database\model
 
     }
 
-    public function checkPassword($LoginPassword) {
+    //public function checkPassword($LoginPassword) {
 
-        return password_verify($LoginPassword, $this->password);
+      //  return password_verify($LoginPassword, $this->password);
 
 
+    //}
+    
+    public function checkPassword($password)
+    {
+    
+      $checkpsw = password_verify($password , $this->password);
+      print_r($checkpsw);
+      return $checkpsw;
+      
     }
-
-
-    public function validate()
+    
+   /* public function validate()
     {
         $valid = TRUE;
         echo 'myemail: ' . $this->email;
@@ -62,7 +70,7 @@ final class account extends \database\model
 
         return $valid;
 
-    }
+    } */
 
 
 
