@@ -31,9 +31,28 @@ final class account extends \database\model
     }
     //add a method to compare the passwords this is where bcrypt should be done and it should return TRUE / FALSE for login
 
-
-
-    public function setPassword($password) {
+ 
+    public function setPassword($password) 
+    {
+        $password = password_hash($password, PASSWORD_BCRYPT);
+        return $password;
+    }
+    public function checkPassword($LoginPassword) {
+        $hash = password_hash($LoginPassword, PASSWORD_BCRYPT);
+        return password_verify($LoginPassword, $hash);
+    }
+    public function validate()
+    {
+        $valid = TRUE;
+        echo 'myemail: ' . $this->email;
+        if($this->email == '') {
+            $valid = FALSE;
+            echo 'nothing in email';
+        }
+        return $valid;
+    }
+   
+/*    public function setPassword($password) {
 
         $password = password_hash($password, PASSWORD_DEFAULT);
 
