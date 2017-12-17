@@ -21,3 +21,14 @@
 //this is how you print something  $data contains the record that was selected on the table.
 print_r($data);
 ?>
+
+<form action="index.php?page=accounts&action=edit&id=<?php echo $data->id; ?>" method="post">
+
+    First name: <input type="text" name="fname" value="<?php echo $data->fname; ?>"><br>
+
+    Last name: <input type="text" name="lname" value="<?php echo $data->lname; ?>"><br>
+    Email: <input type="text" name="email" value="<?php echo $data->email; ?>"><br>
+    Password: <input type="password" name="password" value="<?php echo $data->password; ?>" pattern=".{6,}" title="Password must be at least 6 characters" required><br>
+    <input type="submit" value="Submit form">
+</form>
+
