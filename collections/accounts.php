@@ -26,5 +26,40 @@ class accounts extends \database\collection
 
 
     }
+    
+    public static function getEmail($id)
+    {
+    $tableName = get_called_class();
+        $sql = 'SELECT * FROM ' . $tableName . ' WHERE id = ?';
+     //grab the only record for find one and return as an object
+        $recordsSet = self::getResults($sql, $id);
+        
+        if (is_null($recordsSet)) {
+            return FALSE;
+        } else {
+            return $recordsSet[0]->email;
+        }    
+    
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
