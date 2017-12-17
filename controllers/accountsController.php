@@ -61,7 +61,14 @@ class accountsController extends http\controller
             //this is a mistake you can fix...
             //Turn the set password function into a static method on a utility class.
             $user->password = $user->setPassword($_POST['password']);
-            $user->save();
+            echo $user->password;
+            $userId = $user->save();
+
+            session_start();
+            $_SESSION["userID"] = $userID;
+            $_SESSION["userFname"] = $user->fname;
+            $_SESSION["userLname"] = $user->lname;
+            $_SESSION["userEmail"] = $user->email; 
 
             //you may want to send the person to a
             // login page or create a session and log them in
@@ -88,6 +95,16 @@ class accountsController extends http\controller
     }
 //this is used to save the update form data
     public static function save() {
+        session_start();
+        if(key_exists('userID', $_SESSION))
+        {
+        $userID = $_SESSION['userID'];
+        }
+        else
+        {
+        header("Location: index.php?page=homepage&action=show");
+        }
+    
         $user = accounts::findOne($_REQUEST['id']);
 
         $user->email = $_POST['email'];
@@ -96,8 +113,9 @@ class accountsController extends http\controller
         $user->phone = $_POST['phone'];
         $user->birthday = $_POST['birthday'];
         $user->gender = $_POST['gender'];
+        $user->password = $user->setPassword($_POST['password']);
         $user->save();
-        header("Location: index.php?page=accounts&action=all");
+        header("Location: index.php?page=tasks&action=all");
 
     }
 
@@ -105,7 +123,8 @@ class accountsController extends http\controller
 
         $record = accounts::findOne($_REQUEST['id']);
         $record->delete();
-        header("Location: index.php?page=accounts&action=all");
+        session_destroy();
+        header("Location: index.php?page=homepage&action=show");
     }
 
     //this is to login, here is where you find the account and allow login or deny.
@@ -131,8 +150,13 @@ class accountsController extends http\controller
 
                 session_start();
                 $_SESSION["userID"] = $user->id;
+                $_SESSION["userFname"] = $user->fname;
+                $_SESSION["userLname"] = $user->lname;
+                $_SESSION["userEmail"] = $user->email;
+                
                 //forward the user to the show all todos page
                 print_r($_SESSION);
+                header("Location: index.php?page=tasks&action=all");
             } else {
                 echo 'password does not match';
             }
@@ -143,5 +167,33 @@ class accountsController extends http\controller
 
 
     }
+            public static function logout()
+            
+            {
+            
+            session_destroy();
+            header("Location: index.php?page=homepage&action=show");
+            
+            }
+            
+    }
+            
+            
+            
+            
+            
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
