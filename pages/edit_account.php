@@ -32,7 +32,7 @@ print_r($data);
     <input type="submit" value="Submit form">
 </form>
 
-<h6><a href="index.php?page=tasks&action=all">Back</a></h6>
+<h3><a href="index.php?page=tasks&action=all">Back</a></h3>
 
 <!-- <form action="index.php?page=accounts&action=delete&id=<?php echo $data->id; ?> " method="post" id="form1">
     <button type="submit" form="form1" value="delete">Delete</button>
