@@ -16,6 +16,7 @@
 </head>
 
 <body>
+
 <?php
 //this is how you print something  $data contains the record that was selected on the table.
 print_r($data);
@@ -27,7 +28,7 @@ if(!empty($data))
 }
 ?>
 
-<h6><a href="index.php?page=accounts&action=logout">Logout</a></h6>
+<h3><a href="index.php?page=accounts&action=logout">Logout</a></h3>
 
 <?php
 if($edit == true)
@@ -58,51 +59,8 @@ else {
 <?php 
 }
 ?>
-<h6><a href="index.php?page=tasks&action=all">Back</a></h6>
+<h3><a href="index.php?page=tasks&action=all">Back</a></h3>
 
 <script src="js/scripts.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//put a page with in a form to edit a task and have a delete button in another form to delete
-
-//<form action="index.php?page=tasks&action=delete&id=<?php $data['id'] ?> " method="post" id="form1">
-  //  <button type="submit" form="form1" value="delete">Delete</button>
-//</form>
-
