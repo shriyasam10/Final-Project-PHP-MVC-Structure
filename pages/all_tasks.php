@@ -27,15 +27,18 @@
 </div>
 <div>
 	<div style="width: 100%;float: right;">
-		<div style="float: right;width: 35%;"><h6><a href="index.php?page=accounts&action=logout">Logout</a></h6></div>
-		<div style="float: right;width: 35%;"><h6><a href="index.php?page=accounts&action=edit&id=<?php echo $userID; ?>">Edit Profile</a></h6></div>
-		<div style="float: right;width: 30%;"><h6><a href="index.php?page=accounts&action=show&id=<?php echo $userID; ?>">View Profile</a></h6></div>
+		<div style="float: right;width: 35%;"><h3><a href="index.php?page=accounts&action=logout">Logout</a></h3></div>
+		<div style="float: right;width: 35%;"><h3><a href="index.php?page=accounts&action=edit&id=<?php echo $userID; ?>">Edit Profile</a></h3></div>
+		<div style="float: right;width: 30%;"><h3><a href="index.php?page=accounts&action=show&id=<?php echo $userID; ?>">View Profile</a></h3></div>
+    <div style="float: right;width: 35%;"><h3><a href="index.php?page=accounts&action=all">Show All Accounts</a></h3></div>
+    <div style="float: right;width: 35%;"><h3><a href=<a href="index.php?page=tasks&action=all">Show All Tasks</a></h3></div>
+    <div style="float: right;width: 30%;"><h3><a href="index.php?page=tasks&action=create">Create Task</a></h3></div>
 	</div>
 </div>
 
-<div style="width: 100%;">
-	<h6><a href="index.php?page=tasks&action=create">Create Task</a></h6>
-</div>
+<!--<div style="width: 100%;">
+	<h3><a href="index.php?page=tasks&action=create">Create Task</a></h3>
+</div>-->
 
 
 <?php
