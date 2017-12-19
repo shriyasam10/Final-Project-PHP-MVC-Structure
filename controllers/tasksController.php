@@ -29,7 +29,7 @@ class tasksController extends http\controller
     //you should check the notes on the project posted in moodle for how to use active record here
     public static function create()
     {   
-        session_start();
+        /*session_start();
         if(key_exists('userID',$_SESSION)) {
             $userID = $_SESSION['userID'];
         } else {
@@ -37,8 +37,8 @@ class tasksController extends http\controller
         }
         $userID = $_SESSION['userID'];
         echo $userID;
-        print_r($_POST);
-        self::getTemplate('edit_task');
+        print_r($_POST);*/
+        self::getTemplate('create_task');
     }
     
     //this is the function to view edit record form
@@ -91,4 +91,42 @@ class tasksController extends http\controller
         print_r($_POST);
         header("Location: index.php?page=tasks&action=all");
     }
+    public static function update()
+    {
+        $record = todos::findOne($_REQUEST['id']);
+        $task->owneremail = $_POST['owneremail'];
+        $task->ownerid = $_SESSION['userID'];
+        $record->createddate = $_POST['createddate'];
+        $record->duedate = $_POST['duedate'];
+        $record->message = $_POST['message'];
+        $record->isdone = $_POST['isdone'];
+        $record->save();
+        session_start();
+        header('Location: index.php?page=tasks&action=all&id='.$_SESSION["userID"]);
+    }
+    
+    public static function addTask()
+    {
+        session_start();
+        $record = new todo();
+        $record->owneremail = $_SESSION["userEmail"];
+        $record->ownerid = $_SESSION["userID"];
+        $record->createddate = $_POST['createddate'];
+        $record->duedate = $_POST['duedate'];
+        $record->message = $_POST['message'];
+        $record->isdone = $_POST['isdone'];
+        $record->save();
+        header('Location: index.php?page=tasks&action=all&id='.$_SESSION["userID"]);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
