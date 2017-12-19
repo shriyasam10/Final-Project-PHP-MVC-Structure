@@ -101,7 +101,7 @@ class accountsController extends http\controller
                 $_SESSION["userLname"] = $user->lname;
                 $_SESSION["userEmail"] = $user->email;
                 print_r($_SESSION);
-                header("Location: index.php?page=tasks&action=all");
+                header('Location: index.php?page=tasks&action=all&id='.$user->id);
             } else {
                 echo 'password does not match';
             }
