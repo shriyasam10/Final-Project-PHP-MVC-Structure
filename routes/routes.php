@@ -167,6 +167,22 @@ class routes
         $route->method = 'store';
         $routes[] = $route;
         
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'update';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'update';
+        $routes[] = $route;
+        
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'addTask';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'addTask';
+        $routes[] = $route;
+        
         return $routes;
     }
     public static function create($http_method,$action,$page,$controller,$method) {
